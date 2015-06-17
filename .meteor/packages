@@ -8,3 +8,8 @@ meteor-platform
 autopublish
 insecure
 iron:router
+twbs:bootstrap
+accounts-ui
+accounts-password
+accounts-facebook
+accounts-google
