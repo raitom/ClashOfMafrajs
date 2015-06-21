@@ -1,0 +1,2 @@
+module AttaquerHelper
+end

@@ -1,0 +1,84 @@
+!!! 5
+%html(lang="en")
+  %head
+    %meta(charset="utf-8")
+    %meta(http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1")
+    %meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    %title= content_for?(:title) ? yield(:title) : "ClashOfMafrajs"
+    = csrf_meta_tags
+    / Le HTML5 shim, for IE6-8 support of HTML elements
+    /[if lt IE 9]
+      = javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js"
+    = stylesheet_link_tag "application", :media => "all"
+    = favicon_link_tag 'apple-touch-icon-144x144-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '144x144'
+    = favicon_link_tag 'apple-touch-icon-114x114-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '114x114'
+    = favicon_link_tag 'apple-touch-icon-72x72-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '72x72'
+    = favicon_link_tag 'apple-touch-icon-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png'
+    = favicon_link_tag 'favicon.ico', :rel => 'shortcut icon'
+    = javascript_include_tag "application"
+
+
+  %body
+    .navbar.navbar-default.navbar-static-top
+      .container
+        %button.navbar-toggle(type="button" data-toggle="collapse" data-target=".navbar-responsive-collapse")
+          %span.icon-bar
+          %span.icon-bar
+          %span.icon-bar
+        %a.navbar-brand{href: mafraj_index_path} ClashOfMafrajs
+        .navbar-collapse.collapse.navbar-responsive-collapse
+          %ul.nav.navbar-nav
+            %li
+              = link_to "Caserne à Zamels", zamel_index_path
+            %li
+              = link_to "Attaquer les autres Mafrajs", attaquer_index_path
+            %li
+              = link_to "Meilleurs Mafrajs", highscore_index_path
+          %ul.nav.navbar-right
+            %li.dropdown
+              %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+                = current_user.email
+                %span.caret
+              %ul.dropdown-menu
+                %li
+                  = link_to 'Déconnexion', destroy_user_session_path, method: :delete
+
+    .container
+      .row
+        .col-lg-9
+          = bootstrap_flash
+          = yield
+        .col-lg-3
+          .well.sidebar-nav
+            %h3 Infos du Mafraj
+            .row
+              .col-md-4
+                Thé
+              .col-md-4
+                Fumée
+              .col-md-4
+                Kebabs
+            .row
+              .col-md-4
+                = current_user.mafraj.the
+              .col-md-4
+                = current_user.mafraj.fumee
+              .col-md-4
+                = current_user.mafraj.kebab
+            %br
+            %br
+            .row
+              .col-md-6
+                Zamels
+              .col-md-6
+                Niggers
+            .row
+              .col-md-6
+                = current_user.mafraj.armee.zamel
+              .col-md-6
+                = current_user.mafraj.nigger
+            %br
+            %br
+            %a{href: "/mafraj/archiver/the"} Archiver le Thé (#{current_user.mafraj.the_a_recolter.to_i})
+            %br
+            %a{href: "/mafraj/archiver/fumee"} Archiver la Fumée (#{current_user.mafraj.fumee_a_recolter.to_i})

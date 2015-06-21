@@ -1,0 +1,15 @@
+%h1 Meilleurs Mafrajs
+%br
+%br
+%table.table
+  %tr
+    %th
+      Email
+    %th
+      Kebabs
+  - @mafraj.each do |m|
+    %tr
+      %td
+        =m.user.email
+      %td
+        =m.kebab

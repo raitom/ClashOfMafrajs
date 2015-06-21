@@ -1,0 +1,38 @@
+- if @mafraj.nil?
+  %h1 Aucun Mafraj trouvé. Vous êtes le Zamel zamel roi des Zamels des Mafrajs
+- else
+  %h1 Mafraj trouvé !
+  %br
+  .row
+    .col-md-12
+      %h3 Informations du Mafraj
+      %table.table
+        %tr
+          %th
+            Thé
+          %th
+            Fumée
+          %th
+            Kebabs
+        %tr
+          %td
+            =@mafraj.the
+          %td
+            =@mafraj.fumee
+          %td
+            =@mafraj.kebab
+  .row
+    .col-md-4
+      %h3 Zamels à envoyer
+      %br
+      = form_tag '/attaquer/preparation', id: "form-attaque" do |f|
+        = number_field_tag 'zamels', 0, min: 0, class: "form-control"
+        %input{type: "hidden", name: "user_id_attaque", value: @mafraj.user.id}
+  %br
+  %br
+  .row
+    %div{align: "center"}
+      .col-md-6
+        %a.btn.btn-primary{href: attaquer_index_path} Trouver un autre Mafraj
+      .col-md-6
+        %a.btn.btn-danger{onclick: "$('#form-attaque').submit()"} Attaquer

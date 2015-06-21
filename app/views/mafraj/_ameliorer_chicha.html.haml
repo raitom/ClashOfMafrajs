@@ -1,0 +1,33 @@
+#modalAmeliorerChicha.modal.fade{:role => "dialog", :tabindex => "-1", "aria-labelledby" => "modalAmeliorerChichaLabel"}
+  .modal-dialog{role: "document"}
+    .modal-content
+      .modal-header
+        %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+          %span{"aria-hidden" => "true"} ×
+        %h4.modal-title Améliorer Chica
+      .modal-body
+        %table.table
+          %tr
+            %th
+            %th Actuel
+            %th Niveau supérieur
+          %tr
+            %th Production
+            %td= current_user.mafraj.production(current_user.mafraj.chicha)
+            %td= current_user.mafraj.production(current_user.mafraj.chicha + 1)
+        %table.table
+          %tr
+            %th Coût
+            %th Thé
+            %th Fumée
+          %tr
+            %td
+            %td 0
+            %td= current_user.mafraj.cout_construction(current_user.mafraj.chicha)
+        %p
+          Temps de construction :
+          %b= current_user.mafraj.temps_construction(current_user.mafraj.chicha)
+          minutes
+      .modal-footer
+        %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Annuler
+        %a.btn.btn-primary{href: "/mafraj/ameliorer/chicha"} Améliorer au niveau #{current_user.mafraj.chicha + 1}

@@ -1,0 +1,33 @@
+#modalAmeliorerTheiere.modal.fade{:role => "dialog", :tabindex => "-1", "aria-labelledby" => "modalAmeliorerTheiereLabel"}
+  .modal-dialog{role: "document"}
+    .modal-content
+      .modal-header
+        %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+          %span{"aria-hidden" => "true"} ×
+        %h4.modal-title Améliorer Théière
+      .modal-body
+        %table.table
+          %tr
+            %th
+            %th Actuel
+            %th Niveau supérieur
+          %tr
+            %th Production
+            %td= current_user.mafraj.production(current_user.mafraj.theiere)
+            %td= current_user.mafraj.production(current_user.mafraj.theiere + 1)
+        %table.table
+          %tr
+            %th Coût
+            %th Thé
+            %th Fumée
+          %tr
+            %td
+            %td 0
+            %td= current_user.mafraj.cout_construction(current_user.mafraj.theiere)
+        %p
+          Temps de construction :
+          %b= current_user.mafraj.temps_construction(current_user.mafraj.theiere)
+          minutes
+      .modal-footer
+        %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Annuler
+        %a.btn.btn-primary{href: "/mafraj/ameliorer/theiere"} Améliorer au niveau #{current_user.mafraj.theiere + 1}

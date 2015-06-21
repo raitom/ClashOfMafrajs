@@ -1,0 +1,2 @@
+module MafrajHelper
+end

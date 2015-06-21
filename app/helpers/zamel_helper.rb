@@ -1,0 +1,2 @@
+module ZamelHelper
+end

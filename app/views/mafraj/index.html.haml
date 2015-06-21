@@ -1,0 +1,26 @@
+%h1 Bienvenue dans ton Mafraj, jeune Pomme !
+%br
+%br
+.row
+  .col-lg-4
+    %img.img-circle{:alt => "Generic placeholder image", :height => "140", :src => "http://www.birgittpajarolaphotos.com/Travel/Yemen-Ancient-Architecture/i-MwLSdX4/0/X2/IMGP2852-X2.jpg", :width => "140"}/
+    %h2 Mafraj (lvl: #{current_user.mafraj.niveau})
+    %p Votre hantre de combattants Zamels. Plus votre Mafraj prospère, plus vous posséderez de Niggers.
+    %p
+      %button.btn.btn-default{"data-target" => "#modalAmeliorerMafraj", "data-toggle" => "modal", :type => "button"} Améliorer »
+  .col-lg-4
+    %img.img-circle{:alt => "Generic placeholder image", :height => "140", :src => "http://i00.i.aliimg.com/photo/v0/119466196/Arabic_teapot.jpg", :width => "140"}/
+    %h2 Théière (lvl: #{current_user.mafraj.theiere})
+    %p Produit la ressource principale du Mafraj, le thé, dont les Zamels sont très friand.
+    %p
+      %button.btn.btn-default{"data-target" => "#modalAmeliorerTheiere", "data-toggle" => "modal", :type => "button"} Améliorer »
+  .col-lg-4
+    %img.img-circle{:alt => "Generic placeholder image", :height => "140", :src => "http://francais.islammessage.com/panel/media/flash/chicha.jpg", :width => "140"}/
+    %h2 Chicha (lvl: #{current_user.mafraj.chicha})
+    %p Produit la seconde ressource principale du Mafraj : la fumée. Les Zamels aiment zameler dans une ambiance enfumée.
+    %p
+      %button.btn.btn-default{"data-target" => "#modalAmeliorerChicha", "data-toggle" => "modal", :type => "button"} Améliorer »
+
+= render 'mafraj/ameliorer_theiere'
+= render 'mafraj/ameliorer_mafraj'
+= render 'mafraj/ameliorer_chicha'

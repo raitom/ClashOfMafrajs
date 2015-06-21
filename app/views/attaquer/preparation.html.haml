@@ -1,0 +1,11 @@
+%h1 Êtes-vous sûr de vouloir attaquer ?
+%br
+%h3 Modifier le nombre de Zamels à envoyer
+.row
+  .col-md-4
+    = form_tag '/attaquer/attaquer', id: "form-attaque" do |f|
+      %input.form-control{type: "number", name: "zamels", value: @zamels.to_i,}
+      %input{type: "hidden", name: "user_id_attaque", value: @user_id_attaque}
+    %br
+    %a.btn.btn-success{href: attaquer_index_path} Annuler
+    %a.btn.btn-danger{onclick: "$('#form-attaque').submit()"} Attaquer
