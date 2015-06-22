@@ -3,6 +3,7 @@ class MafrajController < ApplicationController
   before_action :authenticate_user!
   before_action :generer_ressources
   before_action :fin_construction
+  before_action :file_attente
 
   def index
   end

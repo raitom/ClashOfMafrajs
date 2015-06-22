@@ -2,6 +2,7 @@ class AttaquerController < ApplicationController
   layout 'dashboard'
   before_action :authenticate_user!
   before_action :generer_ressources
+  before_action :file_attente
 
   def index
     @mafraj = Mafraj.where.not(user_id: current_user.id).order("RANDOM()").limit(1)
@@ -36,6 +37,8 @@ class AttaquerController < ApplicationController
 
         armee.zamel -= zamels
         armee.save
+
+        FileAttente.new(mafraj_id: mafraj.id, type_file: "attaque", message: "Attaque de #{zamels} zamels.", date_fin: Time.now + zamels.minutes).save
 
         AttaquerMafrajJob.set(wait: 5.minutes).perform_later(current_user.id, zamels, user_id_attaque)
 

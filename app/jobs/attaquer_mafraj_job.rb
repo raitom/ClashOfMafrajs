@@ -14,6 +14,8 @@ class AttaquerMafrajJob < ActiveJob::Base
 
     zamels = zamels.to_i
 
+    FileAttente.where(mafraj_id: mafraj_attaquant.id).where(type_file: "attaque").first.destroy
+
     if zamels > (armee_attaque.zamel * 2)
       mafraj_attaquant.kebab += 1
       mafraj_attaque.kebab -= 1 if mafraj_attaque.kebab > 0

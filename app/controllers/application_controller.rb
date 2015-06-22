@@ -32,4 +32,8 @@ class ApplicationController < ActionController::Base
       end
     end
   end
+
+  def file_attente
+    @file_attente = FileAttente.where(mafraj_id: current_user.mafraj.id)
+  end
 end

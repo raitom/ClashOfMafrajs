@@ -82,3 +82,14 @@
             %a{href: "/mafraj/archiver/the"} Archiver le Thé (#{current_user.mafraj.the_a_recolter.to_i})
             %br
             %a{href: "/mafraj/archiver/fumee"} Archiver la Fumée (#{current_user.mafraj.fumee_a_recolter.to_i})
+            %br
+            %br
+            %h3 En attente
+            %table.table
+              %tr
+                %th Message
+                %th Heure de fin
+              - @file_attente.each do |f|
+                %tr
+                  %td= f.message
+                  %td= f.date_fin.strftime("%d-%m-%Y %H:%M")

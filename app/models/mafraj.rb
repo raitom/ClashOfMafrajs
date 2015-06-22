@@ -17,8 +17,8 @@
 #  niveau                 :integer          default(1)
 #  the_a_recolter         :float            default(0.0)
 #  fumee_a_recolter       :float            default(0.0)
-#  derniere_recolte_fumee :datetime         default(Sun, 21 Jun 2015 16:10:58 UTC +00:00)
-#  derniere_recole_the    :datetime         default(Sun, 21 Jun 2015 16:10:58 UTC +00:00)
+#  derniere_recolte_fumee :datetime         default(Mon, 22 Jun 2015 09:14:06 UTC +00:00)
+#  derniere_recole_the    :datetime         default(Mon, 22 Jun 2015 09:14:06 UTC +00:00)
 #  date_fin_construction  :datetime
 #  type_construction      :varchar
 #
@@ -26,6 +26,7 @@
 class Mafraj < ActiveRecord::Base
   belongs_to :user
   has_one :armee
+  has_many :file_attente
 
   after_create :creer_armee
 
@@ -35,7 +36,7 @@ class Mafraj < ActiveRecord::Base
 
   def temps_construction lvl
     return 0 if lvl == 0
-    Math.exp(lvl).to_i
+    (Math.exp(lvl) / 4.0).to_i
   end
 
   def production lvl

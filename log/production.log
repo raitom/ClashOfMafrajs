@@ -1,0 +1,282 @@
+D, [2015-06-22T11:03:25.628572 #3352] DEBUG -- :   [1m[36m (254.8ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+D, [2015-06-22T11:03:26.144288 #3352] DEBUG -- :   [1m[35m (171.7ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+D, [2015-06-22T11:03:26.489671 #3352] DEBUG -- :   [1m[36mActiveRecord::SchemaMigration Load (172.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+I, [2015-06-22T11:03:26.676513 #3352]  INFO -- : Migrating to DeviseCreateUsers (20150620152755)
+D, [2015-06-22T11:03:26.841750 #3352] DEBUG -- :   [1m[35m (163.8ms)[0m  BEGIN
+D, [2015-06-22T11:03:27.535647 #3352] DEBUG -- :   [1m[36m (175.0ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" character varying, "last_sign_in_ip" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+D, [2015-06-22T11:03:28.050569 #3352] DEBUG -- :   [1m[35m (178.3ms)[0m  CREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")
+D, [2015-06-22T11:03:28.572583 #3352] DEBUG -- :   [1m[36m (169.9ms)[0m  [1mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users"  ("reset_password_token")[0m
+D, [2015-06-22T11:03:29.448712 #3352] DEBUG -- :   [1m[35mSQL (170.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150620152755"]]
+D, [2015-06-22T11:03:29.621250 #3352] DEBUG -- :   [1m[36m (171.8ms)[0m  [1mCOMMIT[0m
+I, [2015-06-22T11:03:29.621444 #3352]  INFO -- : Migrating to CreateMafrajs (20150620154703)
+D, [2015-06-22T11:03:29.788015 #3352] DEBUG -- :   [1m[35m (158.2ms)[0m  BEGIN
+D, [2015-06-22T11:03:30.996994 #3352] DEBUG -- :   [1m[36m (176.6ms)[0m  [1mCREATE TABLE "mafrajs" ("id" serial primary key, "user_id" integer NOT NULL, "nom" character varying, "theiere" integer DEFAULT 0, "chicha" integer DEFAULT 0, "the" integer DEFAULT 0, "fumee" integer DEFAULT 0, "zamel" integer DEFAULT 0, "nigger" integer DEFAULT 1, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+D, [2015-06-22T11:03:31.357011 #3352] DEBUG -- :   [1m[35mSQL (170.9ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150620154703"]]
+D, [2015-06-22T11:03:31.538834 #3352] DEBUG -- :   [1m[36m (181.3ms)[0m  [1mCOMMIT[0m
+I, [2015-06-22T11:03:31.539017 #3352]  INFO -- : Migrating to AddKebabToMafraj (20150620155943)
+D, [2015-06-22T11:03:31.709346 #3352] DEBUG -- :   [1m[35m (162.5ms)[0m  BEGIN
+D, [2015-06-22T11:03:32.240171 #3352] DEBUG -- :   [1m[36m (178.9ms)[0m  [1mALTER TABLE "mafrajs" ADD "kebab" integer DEFAULT 0[0m
+D, [2015-06-22T11:03:32.749522 #3352] DEBUG -- :   [1m[35mSQL (170.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150620155943"]]
+D, [2015-06-22T11:03:32.928175 #3352] DEBUG -- :   [1m[36m (178.1ms)[0m  [1mCOMMIT[0m
+I, [2015-06-22T11:03:32.928353 #3352]  INFO -- : Migrating to AddNiveauToMafraj (20150620192141)
+D, [2015-06-22T11:03:33.098930 #3352] DEBUG -- :   [1m[35m (162.6ms)[0m  BEGIN
+D, [2015-06-22T11:03:33.638259 #3352] DEBUG -- :   [1m[36m (188.6ms)[0m  [1mALTER TABLE "mafrajs" ADD "niveau" integer DEFAULT 1[0m
+D, [2015-06-22T11:03:34.158447 #3352] DEBUG -- :   [1m[35mSQL (171.7ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150620192141"]]
+D, [2015-06-22T11:03:34.334955 #3352] DEBUG -- :   [1m[36m (175.5ms)[0m  [1mCOMMIT[0m
+I, [2015-06-22T11:03:34.335124 #3352]  INFO -- : Migrating to AddRecolteToMafraj (20150620205654)
+D, [2015-06-22T11:03:34.500088 #3352] DEBUG -- :   [1m[35m (157.5ms)[0m  BEGIN
+D, [2015-06-22T11:03:35.036377 #3352] DEBUG -- :   [1m[36m (176.8ms)[0m  [1mALTER TABLE "mafrajs" ADD "the_a_recolter" float DEFAULT 0.0[0m
+D, [2015-06-22T11:03:35.385019 #3352] DEBUG -- :   [1m[35m (175.5ms)[0m  ALTER TABLE "mafrajs" ADD "fumee_a_recolter" float DEFAULT 0.0
+D, [2015-06-22T11:03:35.913914 #3352] DEBUG -- :   [1m[36mSQL (187.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150620205654"]]
+D, [2015-06-22T11:03:36.085588 #3352] DEBUG -- :   [1m[35m (171.1ms)[0m  COMMIT
+I, [2015-06-22T11:03:36.085774 #3352]  INFO -- : Migrating to AddLastUpdateToMafraj (20150621144754)
+D, [2015-06-22T11:03:36.261200 #3352] DEBUG -- :   [1m[36m (167.2ms)[0m  [1mBEGIN[0m
+D, [2015-06-22T11:03:36.788041 #3352] DEBUG -- :   [1m[35m (178.8ms)[0m  ALTER TABLE "mafrajs" ADD "derniere_recolte_fumee" timestamp DEFAULT '2015-06-22 09:03:36.261515'
+D, [2015-06-22T11:03:37.137549 #3352] DEBUG -- :   [1m[36m (179.4ms)[0m  [1mALTER TABLE "mafrajs" ADD "derniere_recole_the" timestamp DEFAULT '2015-06-22 09:03:36.788294'[0m
+D, [2015-06-22T11:03:37.666240 #3352] DEBUG -- :   [1m[35mSQL (174.5ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150621144754"]]
+D, [2015-06-22T11:03:37.842787 #3352] DEBUG -- :   [1m[36m (176.0ms)[0m  [1mCOMMIT[0m
+I, [2015-06-22T11:03:37.842962 #3352]  INFO -- : Migrating to DateFinConstruction (20150621151030)
+D, [2015-06-22T11:03:38.023523 #3352] DEBUG -- :   [1m[35m (172.7ms)[0m  BEGIN
+D, [2015-06-22T11:03:38.376628 #3352] DEBUG -- :   [1m[36m (188.0ms)[0m  [1mALTER TABLE "mafrajs" ADD "date_fin_construction" timestamp[0m
+D, [2015-06-22T11:03:38.549344 #3352] DEBUG -- :   [1m[35m (171.9ms)[0m  ALTER TABLE "mafrajs" ADD "type_construction" character varying
+D, [2015-06-22T11:03:39.059803 #3352] DEBUG -- :   [1m[36mSQL (171.6ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150621151030"]]
+D, [2015-06-22T11:03:39.229190 #3352] DEBUG -- :   [1m[35m (168.8ms)[0m  COMMIT
+I, [2015-06-22T11:03:39.229379 #3352]  INFO -- : Migrating to CreateArmees (20150621160630)
+D, [2015-06-22T11:03:39.398125 #3352] DEBUG -- :   [1m[36m (161.2ms)[0m  [1mBEGIN[0m
+D, [2015-06-22T11:03:39.744448 #3352] DEBUG -- :   [1m[35m (175.3ms)[0m  CREATE TABLE "armees" ("id" serial primary key, "mafraj_id" integer, "zamel" integer DEFAULT 0, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+D, [2015-06-22T11:03:40.078043 #3352] DEBUG -- :   [1m[36mSQL (168.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150621160630"]]
+D, [2015-06-22T11:03:40.249607 #3352] DEBUG -- :   [1m[35m (171.1ms)[0m  COMMIT
+I, [2015-06-22T11:04:13.531721 #3365]  INFO -- : Started GET "/" for ::1 at 2015-06-22 11:04:13 +0200
+I, [2015-06-22T11:04:16.645746 #3365]  INFO -- : Processing by HighVoltage::PagesController#show as HTML
+I, [2015-06-22T11:04:16.645833 #3365]  INFO -- :   Parameters: {"id"=>"home"}
+I, [2015-06-22T11:04:16.669894 #3365]  INFO -- :   Rendered pages/home.html.haml within layouts/application (2.6ms)
+I, [2015-06-22T11:04:16.673913 #3365]  INFO -- : Completed 200 OK in 28ms (Views: 19.9ms | ActiveRecord: 0.0ms)
+I, [2015-06-22T11:04:16.895683 #3365]  INFO -- : Started GET "/stylesheets/application.css" for ::1 at 2015-06-22 11:04:16 +0200
+I, [2015-06-22T11:04:16.906969 #3365]  INFO -- : Started GET "/javascripts/application.js" for ::1 at 2015-06-22 11:04:16 +0200
+F, [2015-06-22T11:04:20.316039 #3365] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/stylesheets/application.css"):
+  actionpack (4.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.2) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.1.0) lib/quiet_assets.rb:27:in `call_with_quiet_assets'
+  actionpack (4.2.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.2) lib/rails/engine.rb:518:in `call'
+  railties (4.2.2) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  puma (2.11.3) lib/puma/server.rb:507:in `handle_request'
+  puma (2.11.3) lib/puma/server.rb:375:in `process_client'
+  puma (2.11.3) lib/puma/server.rb:262:in `block in run'
+  puma (2.11.3) lib/puma/thread_pool.rb:104:in `call'
+  puma (2.11.3) lib/puma/thread_pool.rb:104:in `block in spawn_thread'
+
+
+F, [2015-06-22T11:04:20.317767 #3365] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/javascripts/application.js"):
+  actionpack (4.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.2) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.1.0) lib/quiet_assets.rb:27:in `call_with_quiet_assets'
+  actionpack (4.2.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.2) lib/rails/engine.rb:518:in `call'
+  railties (4.2.2) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  puma (2.11.3) lib/puma/server.rb:507:in `handle_request'
+  puma (2.11.3) lib/puma/server.rb:375:in `process_client'
+  puma (2.11.3) lib/puma/server.rb:262:in `block in run'
+  puma (2.11.3) lib/puma/thread_pool.rb:104:in `call'
+  puma (2.11.3) lib/puma/thread_pool.rb:104:in `block in spawn_thread'
+
+
+I, [2015-06-22T11:04:20.454106 #3365]  INFO -- : Started GET "/favicon.ico" for ::1 at 2015-06-22 11:04:20 +0200
+F, [2015-06-22T11:04:20.625061 #3365] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  actionpack (4.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.2) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.1.0) lib/quiet_assets.rb:27:in `call_with_quiet_assets'
+  actionpack (4.2.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.2) lib/rails/engine.rb:518:in `call'
+  railties (4.2.2) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  puma (2.11.3) lib/puma/server.rb:507:in `handle_request'
+  puma (2.11.3) lib/puma/server.rb:375:in `process_client'
+  puma (2.11.3) lib/puma/server.rb:262:in `block in run'
+  puma (2.11.3) lib/puma/thread_pool.rb:104:in `call'
+  puma (2.11.3) lib/puma/thread_pool.rb:104:in `block in spawn_thread'
+
+
+I, [2015-06-22T11:04:21.423231 #3365]  INFO -- : Started GET "/mafraj/index" for ::1 at 2015-06-22 11:04:21 +0200
+I, [2015-06-22T11:04:21.782995 #3365]  INFO -- : Processing by MafrajController#index as HTML
+I, [2015-06-22T11:04:21.790335 #3365]  INFO -- : Completed 401 Unauthorized in 7ms (ActiveRecord: 0.0ms)
+I, [2015-06-22T11:04:21.839039 #3365]  INFO -- : Started GET "/users/sign_in" for ::1 at 2015-06-22 11:04:21 +0200
+I, [2015-06-22T11:04:22.013218 #3365]  INFO -- : Processing by Devise::SessionsController#new as HTML
+I, [2015-06-22T11:04:22.596300 #3365]  INFO -- :   Rendered devise/shared/_links.erb (1.5ms)
+I, [2015-06-22T11:04:22.596402 #3365]  INFO -- :   Rendered devise/sessions/new.html.erb within layouts/application (9.5ms)
+I, [2015-06-22T11:04:22.597166 #3365]  INFO -- : Completed 200 OK in 584ms (Views: 35.1ms | ActiveRecord: 526.0ms)
+I, [2015-06-22T11:04:22.732715 #3365]  INFO -- : Started GET "/stylesheets/application.css" for ::1 at 2015-06-22 11:04:22 +0200
+I, [2015-06-22T11:04:22.733755 #3365]  INFO -- : Started GET "/javascripts/application.js" for ::1 at 2015-06-22 11:04:22 +0200
+F, [2015-06-22T11:04:23.116841 #3365] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/stylesheets/application.css"):
+  actionpack (4.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.2) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.1.0) lib/quiet_assets.rb:27:in `call_with_quiet_assets'
+  actionpack (4.2.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.2) lib/rails/engine.rb:518:in `call'
+  railties (4.2.2) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  puma (2.11.3) lib/puma/server.rb:507:in `handle_request'
+  puma (2.11.3) lib/puma/server.rb:375:in `process_client'
+  puma (2.11.3) lib/puma/server.rb:262:in `block in run'
+  puma (2.11.3) lib/puma/thread_pool.rb:104:in `call'
+  puma (2.11.3) lib/puma/thread_pool.rb:104:in `block in spawn_thread'
+
+
+F, [2015-06-22T11:04:23.118543 #3365] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/javascripts/application.js"):
+  actionpack (4.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.2) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.1.0) lib/quiet_assets.rb:27:in `call_with_quiet_assets'
+  actionpack (4.2.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.2) lib/rails/engine.rb:518:in `call'
+  railties (4.2.2) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  puma (2.11.3) lib/puma/server.rb:507:in `handle_request'
+  puma (2.11.3) lib/puma/server.rb:375:in `process_client'
+  puma (2.11.3) lib/puma/server.rb:262:in `block in run'
+  puma (2.11.3) lib/puma/thread_pool.rb:104:in `call'
+  puma (2.11.3) lib/puma/thread_pool.rb:104:in `block in spawn_thread'
+
+
+I, [2015-06-22T11:04:26.775471 #3365]  INFO -- : Started GET "/users/sign_up" for ::1 at 2015-06-22 11:04:26 +0200
+I, [2015-06-22T11:04:27.085720 #3365]  INFO -- : Processing by Devise::RegistrationsController#new as HTML
+I, [2015-06-22T11:04:27.104910 #3365]  INFO -- :   Rendered devise/shared/_links.erb (0.5ms)
+I, [2015-06-22T11:04:27.105039 #3365]  INFO -- :   Rendered devise/registrations/new.html.erb within layouts/application (4.2ms)
+I, [2015-06-22T11:04:27.105721 #3365]  INFO -- : Completed 200 OK in 20ms (Views: 18.3ms | ActiveRecord: 0.0ms)
+I, [2015-06-22T11:04:27.203352 #3365]  INFO -- : Started GET "/stylesheets/application.css" for ::1 at 2015-06-22 11:04:27 +0200
+I, [2015-06-22T11:04:27.204432 #3365]  INFO -- : Started GET "/javascripts/application.js" for ::1 at 2015-06-22 11:04:27 +0200
+F, [2015-06-22T11:04:27.522147 #3365] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/stylesheets/application.css"):
+  actionpack (4.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.2) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.1.0) lib/quiet_assets.rb:27:in `call_with_quiet_assets'
+  actionpack (4.2.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.2) lib/rails/engine.rb:518:in `call'
+  railties (4.2.2) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  puma (2.11.3) lib/puma/server.rb:507:in `handle_request'
+  puma (2.11.3) lib/puma/server.rb:375:in `process_client'
+  puma (2.11.3) lib/puma/server.rb:262:in `block in run'
+  puma (2.11.3) lib/puma/thread_pool.rb:104:in `call'
+  puma (2.11.3) lib/puma/thread_pool.rb:104:in `block in spawn_thread'
+
+
+F, [2015-06-22T11:04:27.523807 #3365] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/javascripts/application.js"):
+  actionpack (4.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.2) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.2) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.1.0) lib/quiet_assets.rb:27:in `call_with_quiet_assets'
+  actionpack (4.2.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.2) lib/rails/engine.rb:518:in `call'
+  railties (4.2.2) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  puma (2.11.3) lib/puma/server.rb:507:in `handle_request'
+  puma (2.11.3) lib/puma/server.rb:375:in `process_client'
+  puma (2.11.3) lib/puma/server.rb:262:in `block in run'
+  puma (2.11.3) lib/puma/thread_pool.rb:104:in `call'
+  puma (2.11.3) lib/puma/thread_pool.rb:104:in `block in spawn_thread'
+
+
+I, [2015-06-22T11:04:39.601094 #3365]  INFO -- : Started POST "/users" for ::1 at 2015-06-22 11:04:39 +0200
+I, [2015-06-22T11:04:40.008559 #3365]  INFO -- : Processing by Devise::RegistrationsController#create as HTML
+I, [2015-06-22T11:04:40.009358 #3365]  INFO -- :   Parameters: {"utf8"=>"✓", "authenticity_token"=>"BdnSl6vNa36sAfkSgGpTuceoSzxn0JmAuSVgz7eGgUsnebC1yW9t/8a2iaflSIJQOB6Bubxwc1S0HjPr2FYijw==", "user"=>{"email"=>"raitomm@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+D, [2015-06-22T11:04:40.276984 #3365] DEBUG -- :   [1m[36m (171.7ms)[0m  [1mBEGIN[0m
+D, [2015-06-22T11:04:40.465968 #3365] DEBUG -- :   [1m[35mUser Exists (175.7ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'raitomm@gmail.com' LIMIT 1
+D, [2015-06-22T11:04:40.975589 #3365] DEBUG -- :   [1m[36mSQL (171.1ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "raitomm@gmail.com"], ["encrypted_password", "$2a$10$5RFgnycUeE3FxLStL0w9OO4.xKmbFk.EITXzHmXqvUGZGF/7uDjZO"], ["created_at", "2015-06-22 09:04:40.466688"], ["updated_at", "2015-06-22 09:04:40.466688"]]
+D, [2015-06-22T11:04:41.685840 #3365] DEBUG -- :   [1m[35mSQL (169.0ms)[0m  INSERT INTO "mafrajs" ("nom", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["nom", "raitomm@gmail.com"], ["user_id", 1], ["created_at", "2015-06-22 09:04:41.334758"], ["updated_at", "2015-06-22 09:04:41.334758"]]
+D, [2015-06-22T11:04:42.375919 #3365] DEBUG -- :   [1m[36mSQL (168.3ms)[0m  [1mINSERT INTO "armees" ("mafraj_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["mafraj_id", 1], ["created_at", "2015-06-22 09:04:42.032866"], ["updated_at", "2015-06-22 09:04:42.032866"]]
+D, [2015-06-22T11:04:42.545992 #3365] DEBUG -- :   [1m[35m (167.5ms)[0m  COMMIT
+D, [2015-06-22T11:04:42.715066 #3365] DEBUG -- :   [1m[36m (167.3ms)[0m  [1mBEGIN[0m
+D, [2015-06-22T11:04:43.054756 #3365] DEBUG -- :   [1m[35mSQL (170.1ms)[0m  UPDATE "users" SET "last_sign_in_at" = $1, "current_sign_in_at" = $2, "last_sign_in_ip" = $3, "current_sign_in_ip" = $4, "sign_in_count" = $5, "updated_at" = $6 WHERE "users"."id" = $7  [["last_sign_in_at", "2015-06-22 09:04:42.546907"], ["current_sign_in_at", "2015-06-22 09:04:42.546907"], ["last_sign_in_ip", "::1"], ["current_sign_in_ip", "::1"], ["sign_in_count", 1], ["updated_at", "2015-06-22 09:04:42.715582"], ["id", 1]]
+D, [2015-06-22T11:04:43.226068 #3365] DEBUG -- :   [1m[36m (170.4ms)[0m  [1mCOMMIT[0m
+I, [2015-06-22T11:04:43.247770 #3365]  INFO -- : Redirected to http://localhost:3000/mafraj/index
+I, [2015-06-22T11:04:43.247943 #3365]  INFO -- : Completed 302 Found in 3238ms (ActiveRecord: 2372.0ms)
+I, [2015-06-22T11:04:43.253461 #3365]  INFO -- : Started GET "/mafraj/index" for ::1 at 2015-06-22 11:04:43 +0200
+I, [2015-06-22T11:04:43.418964 #3365]  INFO -- : Processing by MafrajController#index as HTML
+D, [2015-06-22T11:04:43.946687 #3365] DEBUG -- :   [1m[35mUser Load (178.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+D, [2015-06-22T11:04:44.498183 #3365] DEBUG -- :   [1m[36mMafraj Load (171.9ms)[0m  [1mSELECT  "mafrajs".* FROM "mafrajs" WHERE "mafrajs"."user_id" = $1 LIMIT 1[0m  [["user_id", 1]]
+D, [2015-06-22T11:04:44.674332 #3365] DEBUG -- :   [1m[35m (171.7ms)[0m  BEGIN
+D, [2015-06-22T11:04:45.025924 #3365] DEBUG -- :   [1m[36mSQL (176.9ms)[0m  [1mUPDATE "mafrajs" SET "derniere_recole_the" = $1, "derniere_recolte_fumee" = $2, "updated_at" = $3 WHERE "mafrajs"."id" = $4[0m  [["derniere_recole_the", "2015-06-22 09:04:44.502245"], ["derniere_recolte_fumee", "2015-06-22 09:04:44.502317"], ["updated_at", "2015-06-22 09:04:44.674975"], ["id", 1]]
+D, [2015-06-22T11:04:45.196463 #3365] DEBUG -- :   [1m[35m (169.2ms)[0m  COMMIT
+I, [2015-06-22T11:04:45.229196 #3365]  INFO -- :   Rendered mafraj/_ameliorer_theiere.html.haml (8.1ms)
+I, [2015-06-22T11:04:45.236934 #3365]  INFO -- :   Rendered mafraj/_ameliorer_mafraj.html.haml (5.0ms)
+I, [2015-06-22T11:04:45.245169 #3365]  INFO -- :   Rendered mafraj/_ameliorer_chicha.html.haml (4.5ms)
+I, [2015-06-22T11:04:45.245296 #3365]  INFO -- :   Rendered mafraj/index.html.haml within layouts/dashboard (33.8ms)
+D, [2015-06-22T11:04:45.776311 #3365] DEBUG -- :   [1m[36mArmee Load (169.5ms)[0m  [1mSELECT  "armees".* FROM "armees" WHERE "armees"."mafraj_id" = $1 LIMIT 1[0m  [["mafraj_id", 1]]
+I, [2015-06-22T11:04:45.778778 #3365]  INFO -- : Completed 200 OK in 2360ms (Views: 231.7ms | ActiveRecord: 1578.5ms)

@@ -11,13 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150621160630) do
+ActiveRecord::Schema.define(version: 20150622090958) do
 
   create_table "armees", force: :cascade do |t|
     t.integer  "mafraj_id"
     t.integer  "zamel",      default: 0
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+  end
+
+  create_table "file_attentes", force: :cascade do |t|
+    t.integer  "mafraj_id"
+    t.string   "type_file"
+    t.text     "message"
+    t.datetime "date_fin"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "mafrajs", force: :cascade do |t|
@@ -35,8 +44,8 @@ ActiveRecord::Schema.define(version: 20150621160630) do
     t.integer  "niveau",                 default: 1
     t.float    "the_a_recolter",         default: 0.0
     t.float    "fumee_a_recolter",       default: 0.0
-    t.datetime "derniere_recolte_fumee", default: '2015-06-21 16:10:58'
-    t.datetime "derniere_recole_the",    default: '2015-06-21 16:10:58'
+    t.datetime "derniere_recolte_fumee", default: '2015-06-22 09:14:06'
+    t.datetime "derniere_recole_the",    default: '2015-06-22 09:14:06'
     t.datetime "date_fin_construction"
     t.string   "type_construction"
   end
