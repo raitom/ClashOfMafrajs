@@ -30176,3 +30176,211 @@ Processing by ZamelController#index as HTML
 Completed 200 OK in 226ms (Views: 218.8ms | ActiveRecord: 1.6ms)
 [ActiveJob] [ConstruireZamelsJob] [8294399e-09d0-458e-947e-1642c54fe04d] Performing ConstruireZamelsJob from Sidekiq(default) with arguments: 1, 1
 [ActiveJob] [ConstruireZamelsJob] [8294399e-09d0-458e-947e-1642c54fe04d] Performed ConstruireZamelsJob from Sidekiq(default) in 0.97ms
+
+
+Started GET "/" for ::1 at 2015-06-22 11:50:16 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HighVoltage::PagesController#show as HTML
+  Parameters: {"id"=>"home"}
+  Rendered pages/home.html.haml within layouts/application (3.4ms)
+Completed 200 OK in 540ms (Views: 527.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/mafraj/index" for ::1 at 2015-06-22 11:50:18 +0200
+Processing by MafrajController#index as HTML
+  [1m[35mUser Load (0.8ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mMafraj Load (0.6ms)[0m  [1mSELECT  "mafrajs".* FROM "mafrajs" WHERE "mafrajs"."user_id" = ? LIMIT 1[0m  [["user_id", 1]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mUPDATE "mafrajs" SET "derniere_recole_the" = ?, "derniere_recolte_fumee" = ?, "updated_at" = ? WHERE "mafrajs"."id" = ?[0m  [["derniere_recole_the", "2015-06-22 09:50:18.869154"], ["derniere_recolte_fumee", "2015-06-22 09:50:18.869375"], ["updated_at", "2015-06-22 09:50:18.874946"], ["id", 1]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  Rendered mafraj/_ameliorer_theiere.html.haml (5.9ms)
+  Rendered mafraj/_ameliorer_mafraj.html.haml (6.9ms)
+  Rendered mafraj/_ameliorer_chicha.html.haml (5.9ms)
+  Rendered mafraj/index.html.haml within layouts/dashboard (37.9ms)
+  [1m[36mArmee Load (0.7ms)[0m  [1mSELECT  "armees".* FROM "armees" WHERE "armees"."mafraj_id" = ? LIMIT 1[0m  [["mafraj_id", 1]]
+  [1m[35mFileAttente Load (0.2ms)[0m  SELECT "file_attentes".* FROM "file_attentes" WHERE "file_attentes"."mafraj_id" = ?  [["mafraj_id", 1]]
+Completed 200 OK in 432ms (Views: 325.3ms | ActiveRecord: 5.4ms)
+
+
+Started GET "/attaquer/index" for ::1 at 2015-06-22 11:50:20 +0200
+Processing by AttaquerController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mMafraj Load (0.1ms)[0m  SELECT  "mafrajs".* FROM "mafrajs" WHERE "mafrajs"."user_id" = ? LIMIT 1  [["user_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "mafrajs" SET "derniere_recole_the" = ?, "derniere_recolte_fumee" = ?, "updated_at" = ? WHERE "mafrajs"."id" = ?  [["derniere_recole_the", "2015-06-22 09:50:20.311527"], ["derniere_recolte_fumee", "2015-06-22 09:50:20.311599"], ["updated_at", "2015-06-22 09:50:20.312220"], ["id", 1]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35mMafraj Load (0.3ms)[0m  SELECT  "mafrajs".* FROM "mafrajs" WHERE ("mafrajs"."user_id" != ?)  ORDER BY RANDOM() LIMIT 1  [["user_id", 1]]
+  Rendered attaquer/index.html.haml within layouts/dashboard (5.1ms)
+  [1m[36mArmee Load (0.2ms)[0m  [1mSELECT  "armees".* FROM "armees" WHERE "armees"."mafraj_id" = ? LIMIT 1[0m  [["mafraj_id", 1]]
+  [1m[35mFileAttente Load (0.1ms)[0m  SELECT "file_attentes".* FROM "file_attentes" WHERE "file_attentes"."mafraj_id" = ?  [["mafraj_id", 1]]
+Completed 200 OK in 198ms (Views: 189.6ms | ActiveRecord: 2.1ms)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2015-06-22 11:50:24 +0200
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"j1V754N5D0dmBOv6HX1OeGpBtKBZ195sdvooAUWYrnOt9RnF4dsJxgyzm094X5+Rlfd+JYJ3NLh7wXslKkgNtw=="}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 52ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2015-06-22 11:50:24 +0200
+Processing by HighVoltage::PagesController#show as HTML
+  Parameters: {"id"=>"home"}
+  Rendered pages/home.html.haml within layouts/application (0.3ms)
+Completed 200 OK in 156ms (Views: 155.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/mafraj/index" for ::1 at 2015-06-22 11:50:27 +0200
+Processing by MafrajController#index as HTML
+Completed 401 Unauthorized in 4ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2015-06-22 11:50:27 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.erb (1.8ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (16.2ms)
+Completed 200 OK in 202ms (Views: 200.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for ::1 at 2015-06-22 11:50:28 +0200
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.erb (1.2ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (11.7ms)
+Completed 200 OK in 225ms (Views: 223.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2015-06-22 11:50:36 +0200
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"BBGp2gGwlDLe9eKR7DI0lC7Tja3Wrnfb4IOUE5UwaPIMFxxIw7rcZE/7j9uz6M99ZX2nG5x/9sr7BCTGyZRNmQ==", "user"=>{"email"=>"bop@zamel.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'bop@zamel.com' LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["email", "bop@zamel.com"], ["encrypted_password", "$2a$10$e9a9JLjN71lctwjnFR5VduAiPjd68snKyH8PDNLSFLtWamTLp9BMa"], ["created_at", "2015-06-22 09:50:37.067711"], ["updated_at", "2015-06-22 09:50:37.067711"]]
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "mafrajs" ("nom", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["nom", "bop@zamel.com"], ["user_id", 2], ["created_at", "2015-06-22 09:50:37.070303"], ["updated_at", "2015-06-22 09:50:37.070303"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "armees" ("mafraj_id", "created_at", "updated_at") VALUES (?, ?, ?)  [["mafraj_id", 2], ["created_at", "2015-06-22 09:50:37.072098"], ["updated_at", "2015-06-22 09:50:37.072098"]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "last_sign_in_ip" = ?, "current_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["last_sign_in_at", "2015-06-22 09:50:37.075745"], ["current_sign_in_at", "2015-06-22 09:50:37.075745"], ["last_sign_in_ip", "::1"], ["current_sign_in_ip", "::1"], ["sign_in_count", 1], ["updated_at", "2015-06-22 09:50:37.076536"], ["id", 2]]
+  [1m[35m (0.7ms)[0m  commit transaction
+Redirected to http://localhost:3000/mafraj/index
+Completed 302 Found in 145ms (ActiveRecord: 3.9ms)
+
+
+Started GET "/mafraj/index" for ::1 at 2015-06-22 11:50:37 +0200
+Processing by MafrajController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  [1m[35mMafraj Load (0.1ms)[0m  SELECT  "mafrajs".* FROM "mafrajs" WHERE "mafrajs"."user_id" = ? LIMIT 1  [["user_id", 2]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "mafrajs" SET "derniere_recole_the" = ?, "derniere_recolte_fumee" = ?, "updated_at" = ? WHERE "mafrajs"."id" = ?  [["derniere_recole_the", "2015-06-22 09:50:37.112162"], ["derniere_recolte_fumee", "2015-06-22 09:50:37.112228"], ["updated_at", "2015-06-22 09:50:37.112794"], ["id", 2]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  Rendered mafraj/_ameliorer_theiere.html.haml (6.0ms)
+  Rendered mafraj/_ameliorer_mafraj.html.haml (6.8ms)
+  Rendered mafraj/_ameliorer_chicha.html.haml (5.3ms)
+  Rendered mafraj/index.html.haml within layouts/dashboard (39.3ms)
+  [1m[35mArmee Load (0.3ms)[0m  SELECT  "armees".* FROM "armees" WHERE "armees"."mafraj_id" = ? LIMIT 1  [["mafraj_id", 2]]
+  [1m[36mFileAttente Load (0.1ms)[0m  [1mSELECT "file_attentes".* FROM "file_attentes" WHERE "file_attentes"."mafraj_id" = ?[0m  [["mafraj_id", 2]]
+Completed 200 OK in 244ms (Views: 238.1ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/attaquer/index" for ::1 at 2015-06-22 11:50:38 +0200
+Processing by AttaquerController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36mMafraj Load (0.1ms)[0m  [1mSELECT  "mafrajs".* FROM "mafrajs" WHERE "mafrajs"."user_id" = ? LIMIT 1[0m  [["user_id", 2]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "mafrajs" SET "derniere_recole_the" = ?, "derniere_recolte_fumee" = ?, "updated_at" = ? WHERE "mafrajs"."id" = ?[0m  [["derniere_recole_the", "2015-06-22 09:50:38.653747"], ["derniere_recolte_fumee", "2015-06-22 09:50:38.653869"], ["updated_at", "2015-06-22 09:50:38.654681"], ["id", 2]]
+  [1m[35m (7.1ms)[0m  commit transaction
+  [1m[36mMafraj Load (0.2ms)[0m  [1mSELECT  "mafrajs".* FROM "mafrajs" WHERE ("mafrajs"."user_id" != ?)  ORDER BY RANDOM() LIMIT 1[0m  [["user_id", 2]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered attaquer/index.html.haml within layouts/dashboard (4.6ms)
+  [1m[36mArmee Load (0.1ms)[0m  [1mSELECT  "armees".* FROM "armees" WHERE "armees"."mafraj_id" = ? LIMIT 1[0m  [["mafraj_id", 2]]
+  [1m[35mFileAttente Load (0.1ms)[0m  SELECT "file_attentes".* FROM "file_attentes" WHERE "file_attentes"."mafraj_id" = ?  [["mafraj_id", 2]]
+Completed 200 OK in 217ms (Views: 201.6ms | ActiveRecord: 8.4ms)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2015-06-22 11:50:43 +0200
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"b0yK08HGPuFKfTExohI9L5yjWrxR4LCDHICyBRUj93NnSj9BA8x2t9tzXHv9yMbG1w1wChsxMZIHBwLQSYfSGA=="}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 4ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/" for ::1 at 2015-06-22 11:50:43 +0200
+Processing by HighVoltage::PagesController#show as HTML
+  Parameters: {"id"=>"home"}
+  Rendered pages/home.html.haml within layouts/application (0.4ms)
+Completed 200 OK in 177ms (Views: 176.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/mafraj/index" for ::1 at 2015-06-22 11:50:45 +0200
+Processing by MafrajController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2015-06-22 11:50:45 +0200
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.erb (0.5ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 188ms (Views: 186.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2015-06-22 11:50:47 +0200
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"j27hShOVxZZzZWIBkbAH7GPVxNkp8zScvE2RtfaQGh1jsFu42exlOvhwCrh16/kAZlHtf/QfUX7dCv4XR5Yp7Q==", "user"=>{"email"=>"raitomm@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["email", "raitomm@gmail.com"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "users" SET "current_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["current_sign_in_at", "2015-06-22 09:50:47.594595"], ["sign_in_count", 2], ["updated_at", "2015-06-22 09:50:47.595842"], ["id", 1]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/mafraj/index
+Completed 302 Found in 131ms (ActiveRecord: 1.5ms)
+
+
+Started GET "/mafraj/index" for ::1 at 2015-06-22 11:50:47 +0200
+Processing by MafrajController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mMafraj Load (0.1ms)[0m  [1mSELECT  "mafrajs".* FROM "mafrajs" WHERE "mafrajs"."user_id" = ? LIMIT 1[0m  [["user_id", 1]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "mafrajs" SET "derniere_recole_the" = ?, "derniere_recolte_fumee" = ?, "updated_at" = ? WHERE "mafrajs"."id" = ?[0m  [["derniere_recole_the", "2015-06-22 09:50:47.654043"], ["derniere_recolte_fumee", "2015-06-22 09:50:47.654109"], ["updated_at", "2015-06-22 09:50:47.654717"], ["id", 1]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  Rendered mafraj/_ameliorer_theiere.html.haml (0.4ms)
+  Rendered mafraj/_ameliorer_mafraj.html.haml (0.4ms)
+  Rendered mafraj/_ameliorer_chicha.html.haml (0.3ms)
+  Rendered mafraj/index.html.haml within layouts/dashboard (8.2ms)
+  [1m[36mArmee Load (0.2ms)[0m  [1mSELECT  "armees".* FROM "armees" WHERE "armees"."mafraj_id" = ? LIMIT 1[0m  [["mafraj_id", 1]]
+  [1m[35mFileAttente Load (0.1ms)[0m  SELECT "file_attentes".* FROM "file_attentes" WHERE "file_attentes"."mafraj_id" = ?  [["mafraj_id", 1]]
+Completed 200 OK in 223ms (Views: 216.1ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/attaquer/index" for ::1 at 2015-06-22 11:50:49 +0200
+Processing by AttaquerController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mMafraj Load (0.2ms)[0m  SELECT  "mafrajs".* FROM "mafrajs" WHERE "mafrajs"."user_id" = ? LIMIT 1  [["user_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  UPDATE "mafrajs" SET "derniere_recole_the" = ?, "derniere_recolte_fumee" = ?, "updated_at" = ? WHERE "mafrajs"."id" = ?  [["derniere_recole_the", "2015-06-22 09:50:49.094875"], ["derniere_recolte_fumee", "2015-06-22 09:50:49.094984"], ["updated_at", "2015-06-22 09:50:49.096147"], ["id", 1]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35mMafraj Load (0.2ms)[0m  SELECT  "mafrajs".* FROM "mafrajs" WHERE ("mafrajs"."user_id" != ?)  ORDER BY RANDOM() LIMIT 1  [["user_id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered attaquer/index.html.haml within layouts/dashboard (2.0ms)
+  [1m[35mArmee Load (0.1ms)[0m  SELECT  "armees".* FROM "armees" WHERE "armees"."mafraj_id" = ? LIMIT 1  [["mafraj_id", 1]]
+  [1m[36mFileAttente Load (0.2ms)[0m  [1mSELECT "file_attentes".* FROM "file_attentes" WHERE "file_attentes"."mafraj_id" = ?[0m  [["mafraj_id", 1]]
+Completed 200 OK in 217ms (Views: 204.7ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/mafraj/index" for ::1 at 2015-06-22 11:50:52 +0200
+Processing by MafrajController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mMafraj Load (0.1ms)[0m  [1mSELECT  "mafrajs".* FROM "mafrajs" WHERE "mafrajs"."user_id" = ? LIMIT 1[0m  [["user_id", 1]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "mafrajs" SET "derniere_recole_the" = ?, "derniere_recolte_fumee" = ?, "updated_at" = ? WHERE "mafrajs"."id" = ?[0m  [["derniere_recole_the", "2015-06-22 09:50:52.054138"], ["derniere_recolte_fumee", "2015-06-22 09:50:52.054236"], ["updated_at", "2015-06-22 09:50:52.055020"], ["id", 1]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  Rendered mafraj/_ameliorer_theiere.html.haml (0.3ms)
+  Rendered mafraj/_ameliorer_mafraj.html.haml (0.6ms)
+  Rendered mafraj/_ameliorer_chicha.html.haml (0.4ms)
+  Rendered mafraj/index.html.haml within layouts/dashboard (11.1ms)
+  [1m[36mArmee Load (0.3ms)[0m  [1mSELECT  "armees".* FROM "armees" WHERE "armees"."mafraj_id" = ? LIMIT 1[0m  [["mafraj_id", 1]]
+  [1m[35mFileAttente Load (0.2ms)[0m  SELECT "file_attentes".* FROM "file_attentes" WHERE "file_attentes"."mafraj_id" = ?  [["mafraj_id", 1]]
+Completed 200 OK in 220ms (Views: 212.1ms | ActiveRecord: 2.0ms)

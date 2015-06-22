@@ -6,6 +6,6 @@ class ConstruireZamelsJob < ActiveJob::Base
     armee.zamel += nbre_zamels
     armee.save
 
-    FFileAttente.where(mafraj_id: mafraj_attaquant.id).where(type_file: "zamels").first.destroy
+    FileAttente.where(mafraj_id: mafraj_attaquant.id).where(type_file: "zamels").first.destroy
   end
 end
